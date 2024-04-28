@@ -56,9 +56,9 @@ export default function Main (){
       <DollarSign className="h-4 w-4 text-muted-foreground" />
     </CardHeader>
     <CardContent>
-      <div className="text-2xl font-bold">Hi Jacque, how are you</div>
+      <div className="text-2xl font-bold">Let's Bet</div>
       <p className="text-xs text-muted-foreground">
-        +20.1% from last month
+        Sub Category
       </p>
     </CardContent>
   </Card>
