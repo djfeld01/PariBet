@@ -36,39 +36,18 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import SideBar from "./navigation/sidebar"
 
 export default function Main (){
     return (
 <div className=" grid grid-cols-6">
 
-<div className="hidden lg:gap-4 lg:block lg:col-span-1 lg:bg-slate-200">
-  <Card>
-    <CardHeader>
-      <CardTitle>Popular Event 1</CardTitle>
-    </CardHeader>
-    <CardContent>
-      There is some Info about the event here
-    </CardContent>
-  </Card>
-  <Card>
-    <CardHeader>
-      <CardTitle>Popular Event 2</CardTitle>
-    </CardHeader>
-    <CardContent>
-      There is some Info about the event here
-    </CardContent>
-  </Card> 
-   <Card>
-    <CardHeader>
-      <CardTitle>Popular Event 3</CardTitle>
-    </CardHeader>  
-   <CardContent>
-      There is some Info about the event here
-    </CardContent>
-  </Card>
+<div className="hidden  xl:block col-span-1">
+  
+<SideBar />
 </div>
-<main className="col-span-6 flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8 lg:col-span-5">
-<div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
+<main className="col-span-6 flex flex-1 flex-col gap-3 p-4 md:gap-3 md:p-3 xl:col-span-5">
+<div className="grid gap-2 md:grid-cols-2 md:gap-2 lg:grid-cols-3">
   <Card x-chunk="dashboard-01-chunk-0">
     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
       <CardTitle className="text-sm font-medium">
@@ -111,30 +90,7 @@ export default function Main (){
       </p>
     </CardContent>
   </Card>
-  <Card x-chunk="dashboard-01-chunk-2">
-    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-      <CardTitle className="text-sm font-medium">Sales</CardTitle>
-      <CreditCard className="h-4 w-4 text-muted-foreground" />
-    </CardHeader>
-    <CardContent>
-      <div className="text-2xl font-bold">+12,234</div>
-      <p className="text-xs text-muted-foreground">
-        +19% from last month
-      </p>
-    </CardContent>
-  </Card>
-  <Card x-chunk="dashboard-01-chunk-3">
-    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-      <CardTitle className="text-sm font-medium">Active Now</CardTitle>
-      <Activity className="h-4 w-4 text-muted-foreground" />
-    </CardHeader>
-    <CardContent>
-      <div className="text-2xl font-bold">+573</div>
-      <p className="text-xs text-muted-foreground">
-        +201 since last hour
-      </p>
-    </CardContent>
-  </Card>
+
 </div>
 <div className="grid gap-4 md:gap-8 lg:grid-cols-2 xl:grid-cols-3">
   <Card
