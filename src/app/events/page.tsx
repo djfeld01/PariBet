@@ -18,6 +18,13 @@ import {
   TableCell,
 } from "@/components/ui/table";
 
+const competitors = [
+  { name: "wrestler1" },
+  { name: "wrestler1" },
+  { name: "wrestler1" },
+  { name: "wrestler1" },
+];
+
 export default function Competitions() {
   return (
     <div className="grid gap-4 md:gap-8 lg:grid-cols-3 xl:grid-cols-3">
