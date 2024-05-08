@@ -79,7 +79,41 @@ export default function Competitions() {
                 </Table>
               </CardContent>
             </TabsContent>
-            <TabsContent value="pools"></TabsContent>
+            <TabsContent value="pools">
+              {" "}
+              <CardContent>
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Seed</TableHead>
+                      <TableHead>Odds</TableHead>
+                      <TableHead>Wrestler</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {competitors.map((competitor, index) => (
+                      <TableRow
+                        key={index}
+                        onClick={() => setCompetitor(competitor)}
+                      >
+                        <TableCell>
+                          <div className="font-medium">1</div>
+                        </TableCell>
+                        <TableCell>
+                          <div className="font-medium">3:1</div>
+                        </TableCell>
+                        <TableCell>
+                          <div className="font-medium">{competitor.name}</div>
+                          <div className="hidden text-sm text-muted-foreground md:inline">
+                            {competitor.school}
+                          </div>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </CardContent>
+            </TabsContent>
           </Tabs>
         </Card>
         <Card x-chunk="dashboard-01-chunk-5">
