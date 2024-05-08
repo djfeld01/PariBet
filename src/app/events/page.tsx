@@ -1,7 +1,6 @@
+"use client";
 import Link from "next/link";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+
 import {
   Card,
   CardContent,
@@ -17,7 +16,10 @@ import {
   TableBody,
   TableCell,
 } from "@/components/ui/table";
-import { Breadcrumb } from "@/components/ui/breadcrumb";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
+import Betform from "@/components/betform";
+import { useState } from "react";
 
 const competitors = [
   { name: "wrestler1", school: "penn state" },
@@ -27,6 +29,7 @@ const competitors = [
 ];
 
 export default function Competitions() {
+  const [competitor, setCompetitor] = useState(competitors[0]);
   return (
     <div>
       <div className="grid gap-4 md:gap-8 lg:grid-cols-3 xl:grid-cols-3">
@@ -37,42 +40,57 @@ export default function Competitions() {
               <CardDescription>2024 NCAA Wrestling 125</CardDescription>
             </div>
           </CardHeader>
-          <CardContent>
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>Seed</TableHead>
-                  <TableHead>Odds</TableHead>
-                  <TableHead>Wrestler</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {competitors.map((competitor, index) => (
-                  <TableRow key={index}>
-                    <TableCell>
-                      <div className="font-medium">1</div>
-                    </TableCell>
-                    <TableCell>
-                      <div className="font-medium">3:1</div>
-                    </TableCell>
-                    <TableCell>
-                      <div className="font-medium">{competitor.name}</div>
-                      <div className="hidden text-sm text-muted-foreground md:inline">
-                        {competitor.school}
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </CardContent>
+          <Tabs defaultValue="program">
+            <TabsList>
+              <TabsTrigger value="program">Program</TabsTrigger>
+              <TabsTrigger value="pools">Pools</TabsTrigger>
+            </TabsList>
+            <TabsContent value="program">
+              <CardContent>
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Seed</TableHead>
+                      <TableHead>Odds</TableHead>
+                      <TableHead>Wrestler</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {competitors.map((competitor, index) => (
+                      <TableRow
+                        key={index}
+                        onClick={() => setCompetitor(competitor)}
+                      >
+                        <TableCell>
+                          <div className="font-medium">1</div>
+                        </TableCell>
+                        <TableCell>
+                          <div className="font-medium">3:1</div>
+                        </TableCell>
+                        <TableCell>
+                          <div className="font-medium">{competitor.name}</div>
+                          <div className="hidden text-sm text-muted-foreground md:inline">
+                            {competitor.school}
+                          </div>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </CardContent>
+            </TabsContent>
+            <TabsContent value="pools"></TabsContent>
+          </Tabs>
         </Card>
         <Card x-chunk="dashboard-01-chunk-5">
           <CardHeader>
             <CardTitle>Place Bet</CardTitle>
           </CardHeader>
-          <CardContent className="grid gap-8"></CardContent>
+          <CardContent className="grid gap-8">
+            <Betform name={competitor.name} school={competitor.school} />
+          </CardContent>
         </Card>
+        <div>{competitor.name}</div>
       </div>
     </div>
   );

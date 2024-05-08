@@ -14,6 +14,7 @@ import {
 
 import { Package2, Menu, Search, CircleUser } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { ModeToggle } from "../modeToggle";
 
 export default function TopMenu() {
   return (
@@ -113,6 +114,7 @@ export default function TopMenu() {
             <DropdownMenuItem>Logout</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
+        <ModeToggle />
       </div>
     </header>
   );
