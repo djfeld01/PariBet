@@ -18,7 +18,7 @@ import { Input } from "@/components/ui/input";
 
 interface Props {
   name: string;
-  school: string;
+  team: string;
 }
 
 const formSchema = z.object({
@@ -28,7 +28,7 @@ const formSchema = z.object({
     .max(50, { message: "event name is too long" }),
   betType: z.string().min(5).max(50),
 });
-const Betform: NextPage<Props> = ({ name, school }: Props) => {
+const Betform: NextPage<Props> = ({ name, team }: Props) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -74,7 +74,7 @@ const Betform: NextPage<Props> = ({ name, school }: Props) => {
       </form>
       <div>
         {name}
-        {school}
+        {team}
       </div>
     </Form>
   );
